@@ -102,7 +102,7 @@ from database import engine
 
 app = FastAPI(title="Trinh Tran")
 
-models.Base.metadata.create_all(engine  )
+models.Base.metadata.create_all(engine)
 
 
 # router default
