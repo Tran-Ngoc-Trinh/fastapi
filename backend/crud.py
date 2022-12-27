@@ -1,6 +1,6 @@
 from sqlalchemy.orm import Session
-import models
-import schemas
+import models as models
+import schemas as schemas
 
 
 def get_users(db: Session, skip: int = 0, limit: int = 100):

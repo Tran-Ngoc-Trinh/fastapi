@@ -1,11 +1,8 @@
 # from fastapi import FastAPI, HTTPException, Header, Response, File, UploadFile, Depends
 # import io
-
-
-
 # from fastapi.responses import FileResponse
 # from pydantic import BaseModel
-# from fastapi.params import Query 
+# from fastapi.params import Query
 # from typing import Optional
 # import time
 # from enum import Enum
@@ -93,14 +90,14 @@
 
 
 from fastapi import FastAPI
-import models, schemas
+import models as models, schemas as schemas
 from sqlalchemy import Column, Integer, String
 from sqlalchemy import create_engine
 
 from routers import items
 from routers.users import router as router_users
 from internal import admin
-import models, schemas
+import models as models, schemas as schemas
 from database import engine
 
 app = FastAPI(title="Trinh Tran")

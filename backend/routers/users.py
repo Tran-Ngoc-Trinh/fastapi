@@ -6,9 +6,9 @@ from sqlalchemy.orm import sessionmaker, Session
 from typing import List
 
 
-import models, schemas
+import models as models, schemas as schemas
 from database import SessionLocal
-import crud
+import crud as crud
 
 
 router = APIRouter()
