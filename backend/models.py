@@ -11,17 +11,17 @@ from database import Base
 class User(Base):
     __tablename__ = "users"
     id = Column(Integer, primary_key=True, index=True)
-    name = Column(String)
-    address = Column(String)
-    email = Column(String)
+    name = Column(String(50))
+    address = Column(String(50))
+    email = Column(String(50))
     
     items = relationship("Item", back_populates="owner")
 
 class Item(Base):
     __tablename__ = "items"
     id = Column(Integer, primary_key=True, index=True)
-    title = Column(String, index=True)
-    description = Column(String, index=True)
+    title = Column(String(16), index=True)
+    description = Column(String(16), index=True)
     owner_id = Column(Integer, ForeignKey("users.id"))
 
     owner = relationship("User", back_populates="items")

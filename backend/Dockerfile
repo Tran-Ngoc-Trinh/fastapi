@@ -9,6 +9,6 @@ COPY requirements.txt .
 
 RUN pip install -r requirements.txt
 
-COPY ./backend ./backend
+COPY . ./backend
 
 CMD ["python", "./backend/main.py"]
