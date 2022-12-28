@@ -23,7 +23,9 @@ services:
     restart: always
     volumes:
       - database:/var/lib/mysql
-    command: --default-authentication-plugin=mysql_native_password
+    # command: --default-authentication-plugin=mysql_native_password
+    # cap_add:
+    #   - SYS_NICE
     networks:
       - fastapi_network
 volumes:
