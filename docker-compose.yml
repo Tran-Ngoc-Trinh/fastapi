@@ -3,33 +3,26 @@ services:
   # frontend:
 
   api:
-  # build: thư mục chứa backend (./services/backend)
     container_name: api
     build: ./backend
     ports:
-     - "8000:8000"
+      - "8000:8000"
     working_dir: /app
     volumes:
-     - ./:/app
-    networks:
-      - fastapi_network
+      - ./:/app
+    depends_on:
+      - mysql
   mysql:
     image: mysql:8.0.28
     container_name: mysql
     ports:
-      - "5000:3306"
+      - "3307:3306"
+    hostname: db
     env_file:
       - ./.env
     restart: always
     volumes:
       - database:/var/lib/mysql
-    # command: --default-authentication-plugin=mysql_native_password
-    # cap_add:
-    #   - SYS_NICE
-    networks:
-      - fastapi_network
 volumes:
   database:
-networks:
-  fastapi_network:
 
