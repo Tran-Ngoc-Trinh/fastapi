@@ -1,34 +1,40 @@
-from fastapi import APIRouter, Body, Request, HTTPException, status
+from fastapi import APIRouter, Body, Request, HTTPException, status, Depends
 from fastapi.responses import JSONResponse
 from fastapi.encoders import jsonable_encoder
 from sqlalchemy import create_engine
-from sqlalchemy.orm import sessionmaker
+from sqlalchemy.orm import sessionmaker, Session
+from typing import List
 
-from models import User
+
+import models as models, schemas as schemas
+from database import SessionLocal
+import crud as crud
 
 
 router = APIRouter()
-engine = create_engine('sqlite:///sales.db', echo = True)
-Session = sessionmaker(bind = engine)
-session = Session()
 
-@router.get("/", response_description="get list all tasks")
-async def Get_items():
-    
-    Session = sessionmaker(bind = engine)
-    session = Session()
-    result = session.query(Users)
-    return {"name": result[0].name}
-
-@router.get("/{id}", response_description="get task detail")
-async def Get_item(id: str):
+def get_db():
+    db = SessionLocal()
     try:
-        result = session.query(Users).filter(Users.id == id)
-        return {"name": result[0].name}
-    except:
-        raise HTTPException(status_code=404, detail=f"task id = {id} not found")
+        yield db
+    finally:
+        db.close()
 
-@router.delete("/{id}", response_description="delete a task")
-async def delete_item(id: str):
-    json_compatible_item_data = jsonable_encoder({"hello": "world"})
-    return JSONResponse(content=json_compatible_item_data,status_code=status.HTTP_204_NO_CONTENT)
+@router.get("/", response_description="get users", )
+async def Get_users(skip:int = 0, limit: int=100,db: Session = Depends(get_db)):
+    users = crud.get_users(db, skip, limit)
+    return users
+
+@router.get("/{user_id}", response_description="get user")
+async def Get_user(user_id:int, db: Session = Depends(get_db)):
+    db_user = crud.get_user(db, user_id)
+    if db_user is None:
+        raise HTTPException(status_code=404, detail="User not found")
+    return db_user
+
+@router.post("/", response_description="add user", status_code=status.HTTP_201_CREATED)
+async def create_user(request: schemas.User, db: Session = Depends(get_db)):
+    db_user = crud.get_user_by_email(db, email=request.email)
+    if db_user:
+        raise HTTPException(status_code=400, detail="Email already registered")
+    return crud.create_user(db, request)

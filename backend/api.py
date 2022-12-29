@@ -8,8 +8,15 @@ from routers.users import router as router_users
 from internal import admin
 import models as models, schemas as schemas
 from database import engine
+from fastapi.staticfiles import StaticFiles
+from fastapi.templating import Jinja2Templates
+from fastapi.responses import HTMLResponse
 
 app = FastAPI(title="Trinh Tran")
+
+app.mount("/static", StaticFiles(directory="backend/static"), name="static")
+# <link href="{{ url_for('static', path='/styles.css') }}" rel="stylesheet">
+templates = Jinja2Templates(directory="backend/templates/")
 
 models.Base.metadata.create_all(engine)
 
@@ -22,9 +29,10 @@ models.Base.metadata.create_all(engine)
 # )
 
 # router default
-@app.get("/")
+@app.get("/",response_class=HTMLResponse)
 def read():
-    return {"hello": "world"}
+    return templates.TemplateResponse("index.html", {"request": {}})
+
 
 # router riêng
 app.include_router(items.router, tags=["items"], prefix="/task")
