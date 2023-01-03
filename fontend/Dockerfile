@@ -1,14 +1,16 @@
-FROM python:3.10.7
+FROM node:lts-alpine
 
-WORKDIR /fastapi-app
+RUN npm install -g http-server
 
-ENV PYTHONDONTWRITEBYTECODE 1
-ENV PYTHONUNBUFFERED 1
+WORKDIR /app
 
-COPY requirements.txt .
+COPY package*.json ./
 
-RUN pip install -r requirements.txt
+RUN npm install
 
-COPY ./backend ./backend
+COPY . .
 
-CMD ["python", "./backend/main.py"]
+RUN npm run dev
+
+EXPOSE 8080
+CMD [ "http-server", "dist" ]
