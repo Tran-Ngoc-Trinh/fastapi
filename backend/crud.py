@@ -13,9 +13,12 @@ def get_user(db: Session, user_id: int):
 
 def get_user_by_email(db: Session, email: str):
     return db.query(models.User).filter(models.User.email == email).first()
-    
+
+def checkLogin(db: Session,email: str, password: str):
+    return db.query(models.User).filter(models.User.email == email and models.User.password == password).first()
+
 def create_user(db: Session, user: schemas.User):
-    db_user = models.User(name= user.name, address=user.address, email=user.email)
+    db_user = models.User(username= user.username, email=user.email, password=user.password)
     db.add(db_user)
     db.commit()
     db.refresh(db_user)

@@ -11,9 +11,9 @@ from database import Base
 class User(Base):
     __tablename__ = "users"
     id = Column(Integer, primary_key=True, index=True)
-    name = Column(String(50))
-    address = Column(String(50))
+    username = Column(String(50))
     email = Column(String(50))
+    password = Column(String(50))
     
     items = relationship("Item", back_populates="owner")
 

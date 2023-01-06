@@ -10,7 +10,7 @@ from config import settings
 SQLALCHEMY_DATABASE_URL = f"mysql+mysqlconnector://{settings.MYSQL_ROOT_USER}:{settings.MYSQL_ROOT_PASSWORD}@{settings.MYSQL_HOSTNAME}:{settings.DATABASE_PORT}/{settings.MYSQL_DATABASE}"
 
 # connect_args: chỉ dùng cho sqlite
-SQLALCHEMY_DATABASE_URL = 'sqlite:///sales.db'
+SQLALCHEMY_DATABASE_URL = 'sqlite:///sales1.db'
 engine = create_engine(SQLALCHEMY_DATABASE_URL, connect_args={"check_same_thread": False})
 # SessionLocal: mở kết nối để thêm - xoá - sửa
 SessionLocal = sessionmaker(autocommit=False, autoflush=False,bind = engine)
