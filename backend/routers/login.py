@@ -7,18 +7,12 @@ from typing import List
 from auth.jwt_bearer import jwtBearer
 from auth.jwt_handler import signJWT,validate_token
 import models as models, schemas as schemas
-from database import SessionLocal
+from database import SessionLocal, get_db
 import crud as crud
 
 
 router = APIRouter()
 
-def get_db():
-    db = SessionLocal()
-    try:
-        yield db
-    finally:
-        db.close()
 
 @router.post("/signup", response_description="signup", status_code=status.HTTP_201_CREATED )
 async def Signup(request: schemas.User, db: Session = Depends(get_db)):

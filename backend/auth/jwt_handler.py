@@ -6,22 +6,14 @@ from fastapi.security import HTTPBearer
 from pydantic import ValidationError
 import crud as crud
 from sqlalchemy.orm import sessionmaker, Session
-from database import SessionLocal
+from database import SessionLocal, get_db
 
 config = dotenv_values("./.env")
 
 JWT_SECRET = config['secret']
 JSWT_ALGORITHM = config['algorithm']
-reusable_oauth2 = HTTPBearer(
-    scheme_name='Authorization'
-)
+reusable_oauth2 = HTTPBearer(scheme_name='Authorization')
 
-def get_db():
-    db = SessionLocal()
-    try:
-        yield db
-    finally:
-        db.close()
 
 
 def token_response(token: str):

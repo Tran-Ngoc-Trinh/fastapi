@@ -14,7 +14,7 @@ from fastapi.security import OAuth2PasswordBearer, OAuth2PasswordRequestForm
 from auth.jwt_handler import signJWT,validate_token
 from fastapi.security import HTTPBearer
 from auth.jwt_bearer import jwtBearer
-
+from fastapi.responses import JSONResponse
 
 app = FastAPI(title="Trinh Tran")
 
@@ -38,17 +38,17 @@ class MyMiddleware(BaseHTTPMiddleware):
 
 # router default
 @app.get("/",response_class=HTMLResponse)
-def read(request: Request):
+def read(request: Request, response: Response):
     id = 3
+    content = {"message": "Hello World"}
+    headers = {"X-Cat-Dog": "alone in the world", "Content-Language": "en-US"}
+    return JSONResponse(content=content, headers=headers)
     return templates.TemplateResponse("index.html", {"request": request,"id": id})
 
 
 
 
 # bearer
-@app.get('/books', dependencies=[Depends(validate_token)])
-def list_books():
-    return {'data': ['Sherlock Homes', 'Harry Potter', 'Rich Dad Poor Dad']}
 
 @app.post('/post', dependencies=[Depends(jwtBearer())])
 def list_books():

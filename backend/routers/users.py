@@ -8,18 +8,12 @@ from auth.jwt_handler import signJWT,validate_token
 
 
 import models as models, schemas as schemas
-from database import SessionLocal
+from database import SessionLocal, get_db
 import crud as crud
 
 
 router = APIRouter()
 
-def get_db():
-    db = SessionLocal()
-    try:
-        yield db
-    finally:
-        db.close()
 
 @router.get("/", response_description="get users")
 async def Get_users(skip:int = 0, limit: int=100,db: Session = Depends(get_db)):
