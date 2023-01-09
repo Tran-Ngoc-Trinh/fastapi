@@ -2,18 +2,25 @@
   <div class="main">
     <img src="./../assets/icons8-redux-100.png" alt="" />
     <div class="menu">
-      <div>
-        <img src="./../assets/icons8-home-page-64.png" alt="" />
-        <span>Home</span>
-      </div>
+        <router-link to="/" >
+        <div>
+          <img src="./../assets/icons8-home-page-64.png" alt="" />
+          <span>Home</span>
+        </div>
+          
+        </router-link>
+        <router-link to="/" >
       <div>
         <img src="./../assets/icons8-folder-50.png" alt="" />
         <span>Folder</span>
       </div>
+      </router-link>
+      <router-link to="/" >
       <div>
         <img src="./../assets/icons8-user-50.png" alt="" />
         <span>User</span>
       </div>
+      </router-link>
     </div>
     <div class="silebar_footer">T.N.T</div>
   </div>
@@ -36,7 +43,10 @@ export default {};
   }
 }
 .menu {
-  > div {
+  a {
+    text-decoration: none;
+  }
+  a > div {
     display: flex;
     align-items: center;
     padding: 0 25px;
@@ -50,7 +60,7 @@ export default {};
       line-height: 3;
     }
   }
-  > div:hover {
+  a > div:hover {
     background-color: #49475f;
     border-radius: 5px;
     span {

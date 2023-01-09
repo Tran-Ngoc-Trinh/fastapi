@@ -12,6 +12,7 @@ import SideBar from "./components/SideBar.vue";
       <header>
         <Header />
       </header>
+      <router-view />
     </div>
   </div>
 </template>

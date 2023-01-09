@@ -15,7 +15,7 @@
     <template #button-content>
         <b-avatar src="https://placekitten.com/300/300"></b-avatar>
     </template>
-    <b-dropdown-item href="#">Login</b-dropdown-item>
+    <b-dropdown-item href="/login">Login</b-dropdown-item>
     <b-dropdown-item href="#">Logout</b-dropdown-item>
   </b-dropdown>
 
@@ -33,10 +33,10 @@ export default {
 
 <style lang="scss" scoped>
 .header {
-  background-color: #f9f9fb;
-  margin: 20px 10px;
+  background-color: #DEDEDE;
   display: flex;
   justify-content: space-between;
+  padding: 10px 20px 0 20px;
 }
 .search-form {
   position: relative;
