@@ -5,11 +5,11 @@ import SideBar from "./components/SideBar.vue";
 
 <template>
   <div class="wrapper">
-    <div class="sidebar">
+    <div class="sidebar" v-if="$route.name!='login'">
       <SideBar />
     </div>
     <div class="content">
-      <header>
+      <header v-if="$route.name!='login'">
         <Header />
       </header>
       <router-view />
