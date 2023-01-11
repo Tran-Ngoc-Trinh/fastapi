@@ -5,11 +5,11 @@ import SideBar from "./components/SideBar.vue";
 
 <template>
   <div class="wrapper">
-    <div class="sidebar" v-if="$route.name!='login'">
+    <div class="sidebar" v-if="$route.name!='login' & $route.name!='signup'">
       <SideBar />
     </div>
     <div class="content">
-      <header v-if="$route.name!='login'">
+      <header v-if="$route.name!='login' & $route.name!='signup'">
         <Header />
       </header>
       <router-view />
@@ -20,7 +20,7 @@ import SideBar from "./components/SideBar.vue";
 <style scoped lang="scss">
 .wrapper {
   min-height: 100vh;
-  min-width: 100vw;
+  // min-width: 100vw;
   display: flex;
   .sidebar {
     width: 200px;

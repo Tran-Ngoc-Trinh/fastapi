@@ -1,6 +1,6 @@
 <template>
   <div class="header">
-    <form
+    <!-- <form
       action="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/search"
       class="search-form"
     >
@@ -19,7 +19,7 @@
     <b-dropdown-item href="#">Logout</b-dropdown-item>
   </b-dropdown>
 
-    </div>
+    </div> -->
   </div>
 </template>
 
@@ -34,9 +34,9 @@ export default {
 <style lang="scss" scoped>
 .header {
   background-color: #DEDEDE;
-  display: flex;
-  justify-content: space-between;
-  padding: 10px 20px 0 20px;
+  // display: flex;
+  // justify-content: space-between;
+  // padding: 10px 20px 0 20px;
 }
 .search-form {
   position: relative;

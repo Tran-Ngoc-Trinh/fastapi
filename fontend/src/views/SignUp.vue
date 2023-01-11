@@ -1,8 +1,12 @@
 <template>
   <div class="login">
     <div class="login_content">
-      <div class="login_title">LOGIN</div>
+      <div class="login_title">SIGNUP</div>
       <form action="" @submit="checkForm" class="login_form">
+        <input-component
+          img="./src/assets/icons8-mail-30.png"
+          placeholder="Email"
+        />
         <input-component
           img="./src/assets/icons8-user-50.png"
           placeholder="Username"
@@ -11,23 +15,16 @@
           img="./src/assets/icons8-lock-30.png"
           placeholder="Password"
         />
-        <div class="login_subtitle">
-          <div>
-            <input type="checkbox" id="login_checkbox" />
-            <label for="login_checkbox" class="label_checkbox"
-              >&nbsp;Remember me</label
-            >
-          </div>
-          <router-link to="/">
-            <a href="">Forgot?</a>
-          </router-link>
-        </div>
+        <input-component
+          img="./src/assets/icons8-lock-30.png"
+          placeholder="Password"
+        />
         <div class="login_btn">
-          <button>LOGIN</button>
+          <button>SIGNUP</button>
         </div>
         <div class="login_create">
-          <router-link to="/signup">
-            <span>Create your account</span>
+          <router-link to="/login">
+            <span>login</span>
             <div></div>
           </router-link>
         </div>
@@ -149,52 +146,6 @@ img {
   color: red;
   position: absolute;
   right: 0;
-}
-.login_subtitle {
-  position: relative;
-  display: flex;
-  justify-content: space-between;
-  color: #827ffe;
-  label {
-    cursor: pointer;
-    position: relative;
-    padding-left: 20px;
-  }
-  a {
-    text-decoration: none;
-    &:hover {
-      color: #212529;
-    }
-  }
-  input {
-    display: none;
-    &:checked + label::after {
-      visibility: inherit;
-    }
-  }
-  label::before {
-    content: "";
-    display: block;
-    position: absolute;
-    border: 2px solid #827ffe;
-    border-radius: 3px;
-    width: 18px;
-    height: 18px;
-    top: 0;
-    left: 0;
-  }
-  label::after {
-    content: "";
-    display: block;
-    position: absolute;
-    width: 13px;
-    height: 13px;
-    top: 3px;
-    left: 3px;
-    background: #827ffe;
-    clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
-    visibility: hidden;
-  }
 }
 .login_create {
   display: flex;

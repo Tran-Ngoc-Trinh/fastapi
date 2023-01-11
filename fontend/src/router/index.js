@@ -1,5 +1,13 @@
 import { createRouter, createWebHistory } from "vue-router";
 import HomeView from "../views/HomeView.vue";
+// localStorage
+const ifAuthenticated = (to, from, next) => {
+  console.log(to, from)
+  if (true) {
+    next();
+  }
+  next({ name: "login" });
+};
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -8,11 +16,17 @@ const router = createRouter({
       path: "/",
       name: "home",
       component: HomeView,
+      beforeEnter: ifAuthenticated,
     },
     {
       path: "/login",
       name: "login",
       component: () => import("../views/Login.vue"),
+    },
+    {
+      path: "/signup",
+      name: "signup",
+      component: () => import("../views/SignUp.vue"),
     },
   ],
 });
