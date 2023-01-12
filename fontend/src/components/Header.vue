@@ -1,6 +1,6 @@
 <template>
   <div class="header">
-    <!-- <form
+    <form
       action="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/search"
       class="search-form"
     >
@@ -19,7 +19,7 @@
     <b-dropdown-item href="#">Logout</b-dropdown-item>
   </b-dropdown>
 
-    </div> -->
+    </div>
   </div>
 </template>
 

@@ -6,31 +6,43 @@
     </div>
     <div class="main_menu">
       <router-link to="/">
-        <div tabIndex="1">
+        <div tabIndex="1" :style="$route.name == 'home' ? cssFocusBg : ''">
           <img src="./../assets/icons8-person-30.png" alt="" />
           <span>Profile</span>
-          <div class="boder"></div>
+          <div
+            class="boder"
+            :style="$route.name == 'home' ? cssFocusBoder : ''"
+          ></div>
         </div>
       </router-link>
       <router-link to="/">
-        <div tabIndex="2">
+        <div tabIndex="2" :style="$route.name == '' ? cssFocusBg : ''">
           <img src="./../assets/icons8-power-bi-30.png" alt="" />
           <span>Boards</span>
-          <div class="boder"></div>
+          <div
+            class="boder"
+            :style="$route.name == '' ? cssFocusBoder : ''"
+          ></div>
         </div>
       </router-link>
-      <router-link to="/">
-        <div tabIndex="3">
+      <router-link to="/board">
+        <div tabIndex="3" :style="$route.name == 'board' ? cssFocusBg : ''">
           <img src="./../assets/icons8-calendar-30.png" alt="" />
           <span>Boards</span>
-          <div class="boder"></div>
+          <div
+            class="boder"
+            :style="$route.name == 'board' ? cssFocusBoder : ''"
+          ></div>
         </div>
       </router-link>
-      <router-link to="/">
+      <router-link to="/setting" :style="$route.name == '' ? cssFocusBg : ''">
         <div tabIndex="4">
           <img src="./../assets/icons8-settings-30.png" alt="" />
           <span>Setting</span>
-          <div class="boder"></div>
+          <div
+            class="boder"
+            :style="$route.name == '' ? cssFocusBoder : ''"
+          ></div>
         </div>
       </router-link>
       <router-link to="/login" class="logout">
@@ -46,7 +58,19 @@
 </template>
 
 <script>
-export default {};
+export default {
+  data() {
+    return {
+      cssFocusBg: {
+        backgroundColor: "white",
+      },
+      cssFocusBoder: {
+        visibility: "inherit",
+      },
+    };
+  },
+  methods: {},
+};
 </script>
 
 <style lang="scss" scoped>
@@ -84,12 +108,12 @@ export default {};
           visibility: inherit;
         }
       }
-      &:focus {
-        background-color: var(--bg-sildebar);
-        .boder {
-          visibility: inherit;
-        }
-      }
+      // &:focus {
+      //   background-color: var(--bg-sildebar);
+      //   .boder {
+      //     visibility: inherit;
+      //   }
+      // }
       img {
         width: 25px;
         height: 25px;

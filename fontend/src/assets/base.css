@@ -1,5 +1,8 @@
 :root {
     --bg-sildebar: white;
-    --color-menu-sidebar: #f3f5fa;
+    --color-menu-sidebar: #e3ecf9; 
+    /* #f3f5fa; */
     --color-text-sidebar: #2b91fe;
+    --bg-content: #eef2f5;
+    --font-family: Ubuntu-Bold;
 }

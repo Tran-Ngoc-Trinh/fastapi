@@ -9,9 +9,9 @@ import SideBar from "./components/SideBar.vue";
       <SideBar />
     </div>
     <div class="content">
-      <header v-if="$route.name!='login' & $route.name!='signup'">
+      <!-- <header v-if="$route.name!='login' & $route.name!='signup'">
         <Header />
-      </header>
+      </header> -->
       <router-view />
     </div>
   </div>
