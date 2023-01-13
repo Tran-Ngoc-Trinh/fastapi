@@ -22,94 +22,102 @@
     </div>
 
     <div class="board_content">
-      <div class="board_content_block">
+      <div class="board_content_block color_todo">
         <div class="board_content_block_header">
-          <div class="block_color"></div>
+          <div class="block_color color_text_todo"></div>
           <span>To do</span>
         </div>
-        <draggable v-model="ToDo" transition="100" class="drop-zone">
-          <template v-slot:item="{ item }">
-            <div class="board_content_block_body">
-              <div class="board_background"></div>
-              <div class="board_content_title">
-                <h3>{{ item.title }}</h3>
-                <img :src="item.image" alt="" />
+        <div class="scroll">
+          <draggable v-model="ToDo" transition="100" class="drop-zone">
+            <template v-slot:item="{ item }">
+              <div class="board_content_block_body">
+                <div class="board_background"></div>
+                <div class="board_content_title">
+                  <h3>{{ item.title }}</h3>
+                  <img :src="item.image" alt="" />
+                </div>
+                <span>{{ item.content }}</span>
+                <div class="board_date">
+                  <img src="./../assets/icons8-calendar-25.png" alt="" />
+                  <span>{{ item.date }}</span>
+                </div>
               </div>
-              <span>{{ item.content }}</span>
-              <div class="board_date">
-                <img src="./../assets/icons8-calendar-25.png" alt="" />
-                <span>{{ item.date }}</span>
-              </div>
-            </div>
-          </template>
-        </draggable>
+            </template>
+          </draggable>
+        </div>
       </div>
 
-      <div class="board_content_block">
+      <div class="board_content_block color_doing">
         <div class="board_content_block_header">
-          <div class="block_color"></div>
+          <div class="block_color color_text_doing"></div>
           <span>Doing</span>
         </div>
-        <draggable v-model="Doing" transition="100" class="drop-zone">
-          <template v-slot:item="{ item }">
-            <div class="board_content_block_body">
-              <div class="board_background"></div>
-              <div class="board_content_title">
-                <h3>{{ item.title }}</h3>
-                <img :src="item.image" alt="" />
+        <div class="scroll">
+          <draggable v-model="Doing" transition="100" class="drop-zone">
+            <template v-slot:item="{ item }">
+              <div class="board_content_block_body">
+                <div class="board_background"></div>
+                <div class="board_content_title">
+                  <h3>{{ item.title }}</h3>
+                  <img :src="item.image" alt="" />
+                </div>
+                <span>{{ item.content }}</span>
+                <div class="board_date">
+                  <img src="./../assets/icons8-calendar-25.png" alt="" />
+                  <span>{{ item.date }}</span>
+                </div>
               </div>
-              <span>{{ item.content }}</span>
-              <div class="board_date">
-                <img src="./../assets/icons8-calendar-25.png" alt="" />
-                <span>{{ item.date }}</span>
-              </div>
-            </div>
-          </template>
-        </draggable>
+            </template>
+          </draggable>
+        </div>
       </div>
-      <div class="board_content_block">
+      <div class="board_content_block color_done">
         <div class="board_content_block_header">
-          <div class="block_color"></div>
+          <div class="block_color color_text_done"></div>
           <span>Done</span>
         </div>
-        <draggable v-model="Done" transition="100" class="drop-zone">
-          <template v-slot:item="{ item }">
-            <div class="board_content_block_body">
-              <div class="board_background"></div>
-              <div class="board_content_title">
-                <h3>{{ item.title }}</h3>
-                <img :src="item.image" alt="" />
+        <div class="scroll">
+          <draggable v-model="Done" transition="100" class="drop-zone">
+            <template v-slot:item="{ item }">
+              <div class="board_content_block_body">
+                <div class="board_background"></div>
+                <div class="board_content_title">
+                  <h3>{{ item.title }}</h3>
+                  <img :src="item.image" alt="" />
+                </div>
+                <span>{{ item.content }}</span>
+                <div class="board_date">
+                  <img src="./../assets/icons8-calendar-25.png" alt="" />
+                  <span>{{ item.date }}</span>
+                </div>
               </div>
-              <span>{{ item.content }}</span>
-              <div class="board_date">
-                <img src="./../assets/icons8-calendar-25.png" alt="" />
-                <span>{{ item.date }}</span>
-              </div>
-            </div>
-          </template>
-        </draggable>
+            </template>
+          </draggable>
+        </div>
       </div>
-      <div class="board_content_block">
+      <div class="board_content_block color_trash">
         <div class="board_content_block_header">
-          <div class="block_color"></div>
+          <div class="block_color color_text_trash"></div>
           <span>Trash</span>
         </div>
-        <draggable v-model="Trash" transition="100" class="drop-zone">
-          <template v-slot:item="{ item }">
-            <div class="board_content_block_body">
-              <div class="board_background"></div>
-              <div class="board_content_title">
-                <h3>{{ item.title }}</h3>
-                <img :src="item.image" alt="" />
+        <div class="scroll">
+          <draggable v-model="Trash" transition="100" class="drop-zone">
+            <template v-slot:item="{ item }">
+              <div class="board_content_block_body">
+                <div class="board_background"></div>
+                <div class="board_content_title">
+                  <h3>{{ item.title }}</h3>
+                  <img :src="item.image" alt="" />
+                </div>
+                <span>{{ item.content }}</span>
+                <div class="board_date">
+                  <img src="./../assets/icons8-calendar-25.png" alt="" />
+                  <span>{{ item.date }}</span>
+                </div>
               </div>
-              <span>{{ item.content }}</span>
-              <div class="board_date">
-                <img src="./../assets/icons8-calendar-25.png" alt="" />
-                <span>{{ item.date }}</span>
-              </div>
-            </div>
-          </template>
-        </draggable>
+            </template>
+          </draggable>
+        </div>
       </div>
     </div>
   </div>
@@ -148,8 +156,7 @@ export default {
           date: "12/12/2022",
         },
       ],
-      Done: [
-      ],
+      Done: [],
       Trash: [
         {
           image:
@@ -179,7 +186,7 @@ export default {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px;
+  padding: 29px 20px;
   > div {
     display: flex;
     align-items: center;
@@ -246,27 +253,37 @@ export default {
   display: flex;
   justify-content: space-between;
   padding: 0 20px;
-  height: 100%;
-  // background-color: rebeccapurple;
+  height: 85%;
   .board_content_block {
     width: 100%;
     display: flex;
     flex-direction: column;
+    margin-right: 20px;
+    border-radius: 20px;
+    &:last-child {
+      margin-right: inherit;
+    }
     .board_content_block_header {
       display: flex;
+      padding: 20px;
       .block_color {
         width: 15px;
         height: 15px;
-        background-color: red;
         border-radius: 5px;
         margin: 5px 5px 0 0;
       }
+    }
+    .scroll {
+      overflow: auto;
+      padding: 0 20px 0 20px;
+      height: 100%;
+      margin-bottom: 20px;
     }
     .board_content_block_body {
       background-color: #fff;
       border-radius: 30px;
       padding: 20px;
-      margin: 20px 20px 20px 0;
+      margin: 0 0 20px 0;
       .board_background {
         height: 130px;
         border-radius: 20px;
@@ -303,5 +320,29 @@ export default {
 }
 .drop-zone {
   height: 100%;
+}
+.color_text_todo {
+  background-color: #eddeb2;
+}
+.color_todo {
+  background-color: #fdf8ea;
+}
+.color_text_doing {
+  background-color: #b5b0eb;
+}
+.color_doing {
+  background-color: #d6d4f2;
+}
+.color_text_done {
+  background-color: #9cf5ac;
+}
+.color_done {
+  background-color: #d6f6dc;
+}
+.color_text_trash {
+  background-color: #eeb1df;
+}
+.color_trash {
+  background-color: #f5e1f0;
 }
 </style>

@@ -19,9 +19,9 @@ import SideBar from "./components/SideBar.vue";
 
 <style scoped lang="scss">
 .wrapper {
-  min-height: 100vh;
-  // min-width: 100vw;
+  // height: 100vh;
   display: flex;
+  // width: 100vw;
   .sidebar {
     width: 200px;
   }

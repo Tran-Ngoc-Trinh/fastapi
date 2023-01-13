@@ -125,6 +125,7 @@ export default {
         line-height: 3;
         user-select: none;
         font-family: Ubuntu-Regular;
+        margin-right: 10px;
       }
       .boder {
         position: absolute;
